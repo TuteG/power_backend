@@ -128,7 +128,7 @@ def vaciar_log(db: Session = Depends(get_db), token=Depends(solo_admin)):
 # ── USUARIOS ──────────────────────────────────────────────────────────────────
 
 @app.get("/usuarios", response_model=list[schemas.UsuarioPublico])
-def listar_usuarios(db: Session = Depends(get_db), token=Depends(solo_admin)):
+def listar_usuarios(db: Session = Depends(get_db)):
     return crud.get_usuarios(db)
 
 @app.post("/usuarios", response_model=schemas.UsuarioPublico)
